@@ -1,6 +1,6 @@
 [package]
 name = "sootmark-ese"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.80"
 description = "Read-only reader of Microsoft ESE (JET Blue) database files for forensics (SRUM, WebCache, Windows Search, NTDS): header, checksums, B+-trees, the catalog, records, long values and compressed values, damage reported rather than fatal."

@@ -26,6 +26,13 @@ jobs:
         run: cargo fmt --check
       - name: Lint
         run: cargo clippy --all-targets --locked
+      - name: Cache SIDR's Windows 10 index
+        uses: actions/cache@v4
+        with:
+          path: tests/fixtures/sidr/Windows.edb
+          key: sidr-${{ hashFiles('tests/fetch-sidr.sh') }}
+      - name: Fetch SIDR's Windows 10 index
+        run: sh tests/fetch-sidr.sh
       - name: Test
         run: cargo test --locked
       - name: Docs

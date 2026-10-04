@@ -2,3 +2,5 @@
 .DS_Store
 # Local files, never committed.
 /tests/fixtures-real/
+# Downloaded by tests/fetch-sidr.sh, never committed.
+/tests/fixtures/sidr/Windows.edb

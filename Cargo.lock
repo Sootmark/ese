@@ -248,7 +248,7 @@ checksum = "16039a30e3d12a335537236722ba00a8da0b5dfdfcf20785b75dea78f523160e"
 
 [[package]]
 name = "sootmark-ese"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "proptest",
  "sootmark-common",
