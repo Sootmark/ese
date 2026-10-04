@@ -1,0 +1,37 @@
+[package]
+name = "sootmark-ese"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Read-only reader of Microsoft ESE (JET Blue) database files for forensics (SRUM, WebCache, Windows Search, NTDS): header, checksums, B+-trees, the catalog, records, long values and compressed values, damage reported rather than fatal."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Sootmark/ese"
+homepage = "https://sootmark.com"
+keywords = ["forensics", "dfir", "incident-response", "ese", "srum"]
+# Sources only: test fixtures stay in the repository.
+include = ["/src", "/README.md", "/LICENSE-APACHE", "/LICENSE-MIT"]
+
+[lib]
+name = "ese"
+
+[dev-dependencies]
+# gzip, for the test databases stored compressed.
+common = { package = "sootmark-common", version = "0.3.7" }
+proptest = "1"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+cast_possible_wrap = "allow"
+cast_precision_loss = "allow"
+
+# The test databases are 130 MB once decompressed: an optimised inflater
+# keeps the test run short.
+[profile.dev.package.sootmark-common]
+opt-level = 3
